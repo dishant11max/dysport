@@ -83,7 +83,7 @@ export default function BookSection() {
             marginBottom: "16px"
           }}
         >
-          The Stranger — Albert Camus
+          The Stranger-Albert Camus
         </p>
 
         <p

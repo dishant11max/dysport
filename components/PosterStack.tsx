@@ -56,10 +56,17 @@ export default function PosterStack() {
           setIsStackHovered(false);
           setHoveredIndex(null);
         }}
+        onClick={() => {
+          // Allow tapping the background container to toggle spread on mobile
+          if (!hoveredIndex) {
+             setIsStackHovered(!isStackHovered);
+          }
+        }}
+        className="w-[320px] max-w-[100vw] h-[520px] relative cursor-pointer lg:cursor-default"
         style={{ 
-          position: "relative", 
-          width: "320px", 
-          height: "520px"
+          // Container width scales down slightly on very small screens to fit without overflowing
+          transform: "scale(min(1, calc(100vw / 360)))",
+          WebkitTapHighlightColor: "transparent"
         }}
       >
         {posters.map((poster, index) => {
@@ -79,6 +86,12 @@ export default function PosterStack() {
                 if (hoveredIndex === index) {
                   setHoveredIndex(null);
                 }
+              }}
+              onClick={(e) => {
+                // On mobile, tapping a poster toggles it to the front
+                e.stopPropagation();
+                setIsStackHovered(true); // ensure stack is fanned out
+                setHoveredIndex(hoveredIndex === index ? null : index);
               }}
               style={{
                 position: "absolute",

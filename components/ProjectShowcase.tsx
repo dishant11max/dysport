@@ -100,21 +100,14 @@ export default function ProjectShowcase({
     <div ref={sectionRef} id="work">
       <div className="grid-container">
         <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "clamp(40px, 5vw, 80px)",
-            alignItems: "center",
-            flexDirection: reversed ? "row-reverse" : "row",
-          }}
+          className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[clamp(40px,5vw,80px)]"
         >
           {/* ── Text Block ── */}
           <div
             ref={textRef}
+            className={`flex flex-col ${reversed ? "lg:order-2 lg:pl-[40px]" : "lg:order-1 lg:pr-[40px]"}`}
             style={{
-              order: reversed ? 2 : 1,
-              paddingRight: reversed ? "0" : "40px",
-              paddingLeft: reversed ? "40px" : "0",
+              order: 2, // on mobile, text usually goes below image or we can just let it stack naturally. Let's stack image first on mobile!
             }}
           >
             <p className="project-index" style={{ marginBottom: "20px" }}>
@@ -202,12 +195,9 @@ export default function ProjectShowcase({
           {/* ── Image Block ── */}
           <div
             ref={imageWrapRef}
+            className={`relative h-[clamp(420px,55vw,700px)] ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
             style={{
-              order: reversed ? 1 : 2,
-              position: "relative",
-              height: "clamp(420px, 55vw, 700px)",
-              marginLeft: reversed ? "-40px" : "40px",
-              marginRight: reversed ? "40px" : "-40px",
+              order: 1, // image on top for mobile
             }}
           >
             <div

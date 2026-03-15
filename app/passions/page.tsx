@@ -34,9 +34,11 @@ export default function PassionsPage() {
             <NextStepsSection />
           </div>
 
-          {/* Sticky Poster Stack column */}
-          <div className="hidden lg:block relative">
-            <div style={{ position: "sticky", top: 0, height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {/* Sticky Poster Stack column - Responsive */}
+          <div className="relative flex justify-center lg:block mt-12 lg:mt-0">
+            <div 
+              className="lg:sticky lg:top-0 lg:h-[100vh] flex items-center justify-center pb-20 lg:pb-0"
+            >
               <PosterStack />
             </div>
           </div>
