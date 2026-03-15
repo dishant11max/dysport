@@ -1,0 +1,115 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const focusItems = [
+  {
+    title: "DevMap",
+    description: "AI-powered roadmap generator for developers.",
+  },
+  {
+    title: "Eternal Recurrence",
+    description: "Minimal philosophical web experience exploring digital identity.",
+  },
+  {
+    title: "Sports Partner Finder",
+    description: "Platform connecting players with nearby sports partners.",
+  },
+  {
+    title: "Experiments",
+    description: "Small AI tools and developer utilities.",
+  },
+];
+
+export default function FocusSection() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const labelRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const g = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 90%",
+          toggleActions: "play none none none"
+        }
+      });
+
+      g.fromTo(labelRef.current, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" })
+       .fromTo(listRef.current?.children ? Array.from(listRef.current.children) : [], 
+         { y: 12, opacity: 0 },
+         { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
+         "-=0.4"
+       );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section 
+      ref={sectionRef}
+      style={{
+        paddingTop: "60px",
+        paddingBottom: "60px",
+      }}
+    >
+      <div style={{ width: "100%" }}>
+        <div
+          ref={labelRef}
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: "12px",
+            fontWeight: 600,
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+            color: "#888",
+            marginBottom: "48px",
+            display: "flex",
+            alignItems: "center",
+            gap: "12px"
+          }}
+        >
+          <span style={{ color: "#000" }}>02</span>
+          <span>CURRENT FOCUS</span>
+        </div>
+
+        <ul ref={listRef} style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "32px" }}>
+          {focusItems.map((item, index) => (
+            <li key={index} style={{ borderBottom: "1px solid rgba(0,0,0,0.05)", paddingBottom: "24px" }}>
+              <span
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "18px",
+                  fontWeight: 500,
+                  color: "#111",
+                  display: "inline-block",
+                  marginRight: "12px"
+                }}
+              >
+                {item.title},
+              </span>
+              <span
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: "18px",
+                  fontWeight: 300,
+                  color: "#666",
+                }}
+              >
+                {item.description}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}

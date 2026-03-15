@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer
@@ -45,7 +47,7 @@ export default function Footer() {
                 something great.
               </h2>
               <a
-                href="mailto:dishant@example.com"
+                href="mailto:savadiadishan@gmail.com"
                 style={{
                   fontSize: "13px",
                   fontWeight: 400,
@@ -64,7 +66,7 @@ export default function Footer() {
                   ((e.target as HTMLAnchorElement).style.borderBottomColor = "rgba(255,255,255,0.3)")
                 }
               >
-                dishant@example.com
+                savadiadishan@gmail.com
               </a>
             </div>
 
@@ -88,23 +90,30 @@ export default function Footer() {
                 >
                   Sitemap
                 </p>
-                {["Work", "About", "Services", "Contact"].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 300,
-                      color: "#fff",
-                      textDecoration: "none",
-                      transition: "opacity 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.opacity = "0.6")}
-                    onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.opacity = "1")}
-                  >
-                    {item}
-                  </a>
-                ))}
+                <Link
+                  href="/#work"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  Work
+                </Link>
+                <Link
+                  href="/about"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  About
+                </Link>
+                <Link
+                  href="/passions"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  Passions
+                </Link>
+                <Link
+                  href="/contact"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  Contact
+                </Link>
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -122,9 +131,9 @@ export default function Footer() {
                 </p>
                 {[
                   { name: "GitHub", url: "https://github.com/dishant11max" },
-                  { name: "Twitter", url: "#" },
-                  { name: "LinkedIn", url: "#" },
-                  { name: "ReadCV", url: "#" },
+                  { name: "Twitter", url: "https://x.com/dishant10510925" },
+                  { name: "LinkedIn", url: "https://www.linkedin.com/in/dishant-savadia-b38b0a289/" },
+                  { name: "Letterboxd", url: "https://letterboxd.com/Dishahahant/" },
                 ].map((social) => (
                   <a
                     key={social.name}
@@ -176,7 +185,7 @@ export default function Footer() {
                 color: "rgba(255,255,255,0.5)",
               }}
             >
-              Built with Next.js, GSAP & Tailwind
+              
             </p>
           </div>
         </div>

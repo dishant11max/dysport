@@ -15,7 +15,7 @@ const projects: ProjectShowcaseProps[] = [
     imageAlt: "Dev Map",
     link: "https://devmap-six.vercel.app/",
     imagePosition: "center center",
-    imageFit: "contain",
+    imageFit: "cover",
     reversed: false,
     thumbnails: [],
   },
@@ -33,26 +33,21 @@ const projects: ProjectShowcaseProps[] = [
   },
   {
     index: "03",
-    category: "Experiments",
-    title: "AI EXPERIMENTS",
+    category: "Platform",
+    title: "SPORTS PARTNER FINDER",
     description:
-      "Collection of AI tools, micro projects and developer prototypes.",
-    longDescription:
-      "A living repository of AI-powered experiments — from generative tools to developer utilities and interactive prototypes.",
-    imageSrc: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=92&auto=format&fit=crop",
-    imageAlt: "AI Experiments",
+      "Platform that connects athletes and players with nearby sports partners.",
+    imageSrc: "/sports.jpg",
+    imageAlt: "Sports Partner Finder",
     reversed: false,
-    thumbnails: [
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=200&q=72&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1655720031554-a929595ffad7?w=200&q=72&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=200&q=72&auto=format&fit=crop",
-    ],
+    thumbnails: [],
   },
 ];
 
 export default function ProjectsSection() {
   return (
     <section
+      id="work"
       style={{
         paddingTop: "clamp(120px, 15vw, 220px)",
         paddingBottom: "clamp(80px, 10vw, 140px)",

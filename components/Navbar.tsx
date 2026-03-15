@@ -44,18 +44,19 @@ export default function Navbar() {
 
         {/* Nav links */}
         <nav style={{ display: "flex", gap: "40px", alignItems: "center" }}>
-          <a href="#work" className="nav-link">
+          <Link href="/#work" className="nav-link">
             Work
-          </a>
-          <a href="#about" className="nav-link">
+          </Link>
+          <Link href="/about" className="nav-link">
             About
-          </a>
-          <a
-            href="mailto:dishant@example.com"
-            className="nav-link"
-          >
+          </Link>
+          <Link href="/passions" className="nav-link">
+            Index
+          </Link>
+          <Link href="/contact" className="nav-link">
             Contact
-          </a>
+          </Link>
+        
         </nav>
       </div>
     </header>
