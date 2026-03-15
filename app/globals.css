@@ -1,27 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Base Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background-color: #F4F4F4;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto; /* Lenis handles smooth scroll */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F4F4F4;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* ─── Selection ─── */
+::selection {
+  background-color: #000;
+  color: #F4F4F4;
+}
+
+/* ─── Layout Grid ─── */
+.grid-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+@media (max-width: 1024px) {
+  .grid-container {
+    padding-left: 40px;
+    padding-right: 40px;
   }
+}
+
+@media (max-width: 640px) {
+  .grid-container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+/* ─── Typography ─── */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ─── Navbar ─── */
+.nav-link {
+  position: relative;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #000;
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Hero ─── */
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(90px, 12vw, 160px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+/* ─── Section Titles ─── */
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(52px, 6.5vw, 108px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+/* ─── Project Index ─── */
+.project-index {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #555;
+}
+
+/* ─── See All ─── */
+.see-all-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(52px, 7vw, 100px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
+/* ─── CTA Button ─── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #000;
+  padding-bottom: 4px;
+  color: #000;
+  transition: opacity 0.3s ease;
+}
+
+.cta-btn:hover {
+  opacity: 0.6;
+}
+
+/* ─── Thumbnail dots ─── */
+.thumb-strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.thumb-strip .thumb {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  filter: grayscale(30%);
+  transition: filter 0.3s ease;
+}
+
+.thumb-strip .thumb:hover {
+  filter: grayscale(0%);
+}
+
+/* ─── Parallax container ─── */
+.parallax-img-wrap {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.parallax-img-wrap img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  transform-origin: center top;
+  will-change: transform;
+}
+
+/* ─── Divider ─── */
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  width: 100%;
 }
