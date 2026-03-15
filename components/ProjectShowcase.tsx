@@ -20,6 +20,7 @@ export interface ProjectShowcaseProps {
   imageFit?: "cover" | "contain";
   reversed?: boolean;     // image on left, text on right
   thumbnails?: string[];
+  ctaText?: string;
 }
 
 export default function ProjectShowcase({
@@ -35,6 +36,7 @@ export default function ProjectShowcase({
   imageFit = "cover",
   reversed = false,
   thumbnails = [],
+  ctaText = "View Full Project",
 }: ProjectShowcaseProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -94,7 +96,7 @@ export default function ProjectShowcase({
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [imageFit]);
 
   return (
     <div ref={sectionRef} id="work">
@@ -105,10 +107,7 @@ export default function ProjectShowcase({
           {/* ── Text Block ── */}
           <div
             ref={textRef}
-            className={`flex flex-col ${reversed ? "lg:order-2 lg:pl-[40px]" : "lg:order-1 lg:pr-[40px]"}`}
-            style={{
-              order: 2, // on mobile, text usually goes below image or we can just let it stack naturally. Let's stack image first on mobile!
-            }}
+            className={`flex flex-col order-2 ${reversed ? "lg:order-2 lg:pl-[40px]" : "lg:order-1 lg:pr-[40px]"}`}
           >
             <p className="project-index" style={{ marginBottom: "20px" }}>
               {index}
@@ -162,7 +161,7 @@ export default function ProjectShowcase({
             {!longDescription && <div style={{ marginBottom: "40px" }} />}
 
             <a href={link} target="_blank" rel="noopener noreferrer" className="cta-btn">
-              View Full Project{" "}
+              {ctaText}{" "}
               <span
                 style={{
                   display: "inline-block",
@@ -195,10 +194,7 @@ export default function ProjectShowcase({
           {/* ── Image Block ── */}
           <div
             ref={imageWrapRef}
-            className={`relative h-[clamp(420px,55vw,700px)] ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
-            style={{
-              order: 1, // image on top for mobile
-            }}
+            className={`relative h-[clamp(420px,55vw,700px)] order-1 ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
           >
             <div
               className="parallax-img-wrap"
@@ -206,21 +202,21 @@ export default function ProjectShowcase({
                 height: "100%",
                 borderRadius: "2px",
                 overflow: "hidden",
+                position: "relative"
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 ref={imgRef}
                 src={imageSrc}
                 alt={imageAlt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 style={{
-                  width: "100%",
-                  height: imageFit === "cover" ? "115%" : "100%",
                   objectFit: imageFit,
                   objectPosition: imagePosition,
                   willChange: "transform",
-                  marginTop: imageFit === "cover" ? "-7.5%" : "0",
                   filter: "contrast(1.06) brightness(0.97)",
+                  scale: imageFit === "cover" ? "1.15" : "1",
                 }}
               />
             </div>

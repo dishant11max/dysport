@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AboutHero from "@/components/AboutHero";
 import PhilosophySection from "@/components/PhilosophySection";
@@ -15,7 +14,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main style={{ backgroundColor: "#F4F4F4", minHeight: "100vh" }}>
-      <Navbar />
       
       <div 
         className="max-w-[1400px] mx-auto px-[clamp(24px,5vw,80px)] pt-20"

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,8 +48,8 @@ export default function SeeAllProjects() {
       }}
     >
       <div className="grid-container" style={{ textAlign: "center" }}>
-        <a
-          href="#"
+        <Link
+          href="/projects"
           style={{
             display: "inline-block",
             color: "#000",
@@ -82,7 +83,7 @@ export default function SeeAllProjects() {
               →
             </span>
           </h2>
-        </a>
+        </Link>
       </div>
     </section>
   );

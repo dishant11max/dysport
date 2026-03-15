@@ -57,7 +57,7 @@ export default function NextStepsSection() {
           }}
         >
           <span style={{ color: "#000" }}>06</span>
-          <span>WHAT I'M FIGURING OUT</span>
+          <span>WHAT I&apos;M FIGURING OUT</span>
         </div>
 
         <h2
@@ -83,7 +83,7 @@ export default function NextStepsSection() {
             marginBottom: "24px"
           }}
         >
-          I'm still figuring it out.
+          I&apos;m still figuring it out.
         </p>
 
         <p
@@ -96,7 +96,7 @@ export default function NextStepsSection() {
             maxWidth: "600px"
           }}
         >
-          For now, I'm focused on learning, building small experiments, and exploring ideas through code.
+          For now, I&apos;m focused on learning, building small experiments, and exploring ideas through code.
         </p>
 
       </div>

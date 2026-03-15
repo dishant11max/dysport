@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const posters = [
   {
@@ -112,17 +113,14 @@ export default function PosterStack() {
                 animationDelay: poster.animationDelay,
               }}
             >
-              <img 
+              <Image 
                 src={poster.src} 
                 alt={poster.alt}
+                fill
+                sizes="220px"
                 style={{
-                  width: "100%",
-                  height: "100%",
                   objectFit: "cover",
                   display: "block"
-                }}
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://via.placeholder.com/220x320/dddddd/888888?text=${encodeURIComponent(poster.alt)}`;
                 }}
               />
             </div>

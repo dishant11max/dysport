@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -33,7 +32,6 @@ function ContactLink({ label, value, href }: { label: string; value: string; hre
 export default function ContactPage() {
   return (
     <main style={{ backgroundColor: "#F4F4F4", minHeight: "100vh" }}>
-      <Navbar />
       
       <div className="max-w-[1400px] mx-auto px-[clamp(24px,5vw,80px)] pt-[clamp(120px,15vh,200px)] pb-[clamp(80px,10vh,140px)]">
         
@@ -48,10 +46,10 @@ export default function ContactPage() {
               
               <div className="max-w-[520px] flex flex-col gap-6 text-[18px] text-[#444] leading-[1.6] font-inter">
                 <p>
-                  Let's build something interesting.
+                  Let&apos;s build something interesting.
                 </p>
                 <p>
-                  If you'd like to collaborate, discuss ideas, or just say hello, feel free to reach out.
+                  If you&apos;d like to collaborate, discuss ideas, or just say hello, feel free to reach out.
                 </p>
               </div>
             </div>

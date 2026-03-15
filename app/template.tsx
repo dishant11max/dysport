@@ -6,14 +6,14 @@ export default function Template({ children }: { children: ReactNode }) {
   return (
     <div 
       style={{
-        animation: "fadeIn 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
+        animation: "fadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       }}
     >
       <style>{`
         @keyframes fadeIn {
           from {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(15px);
           }
           to {
             opacity: 1;

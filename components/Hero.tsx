@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -223,6 +224,7 @@ export default function Hero() {
             <div
               className="hero-visual-panel"
               style={{
+                position: "relative",
                 width: "420px",
                 height: "clamp(400px, 75vh, 650px)",
                 borderRadius: "12px",
@@ -232,11 +234,12 @@ export default function Hero() {
                 transformOrigin: "right center"
               }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
+              <Image 
                 src="/hero-blueprint.jpg" 
                 alt="Artistic blueprint" 
-                style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                fill
+                priority
+                style={{ objectFit: "cover" }} 
               />
             </div>
           </div>

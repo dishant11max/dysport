@@ -88,7 +88,7 @@ export default function AboutHero() {
             marginBottom: "24px"
           }}
         >
-         Hi, I’m Dishant,a developer focused on building digital products, developer tools, and internet experiments.
+         Hi, I’m Dishant a developer focused on building digital products, developer tools, and internet experiments.
         </p>
 
         <p

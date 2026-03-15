@@ -41,6 +41,7 @@ const projects: ProjectShowcaseProps[] = [
     imageAlt: "Sports Partner Finder",
     reversed: false,
     thumbnails: [],
+    ctaText: "Currently Building",
   },
 ];
 
