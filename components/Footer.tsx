@@ -109,16 +109,16 @@ export default function Footer() {
                   Passions
                 </Link>
                 <Link
-                  href="/contact"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  Contact
-                </Link>
-                <Link
                   href="/notes"
                   style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
                 >
                   Notes
+                </Link>
+                <Link
+                  href="/contact"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  Contact
                 </Link>
               </div>
 
