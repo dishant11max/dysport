@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const posters = [
   {
-    src: "/media__1773609836737.jpg", // Darjeeling Limited
+    src: "/media__1773609836737.jpg",
     alt: "The Darjeeling Limited",
     defaultTransform: "translate(-30px, -40px) rotate(-4deg)",
     hoverTransform: "translate(-80px, -60px) rotate(-10deg)",
@@ -13,28 +13,28 @@ const posters = [
     animationDelay: "0s",
   },
   {
-    src: "/media__1773609818529.jpg", // Perks of Being a Wallflower
+    src: "/media__1773609818529.jpg",
     alt: "The Perks of Being a Wallflower",
     defaultTransform: "translate(40px, -10px) rotate(3deg)",
     hoverTransform: "translate(90px, -30px) rotate(8deg)",
     zIndex: 2,
-    animationDelay: "1.5s",
+    animationDelay: "1.6s",
   },
   {
-    src: "/media__1773609818549.jpg", // About Time
+    src: "/media__1773609818549.jpg",
     alt: "About Time",
     defaultTransform: "translate(-20px, 100px) rotate(-2deg)",
     hoverTransform: "translate(-70px, 120px) rotate(-8deg)",
     zIndex: 3,
-    animationDelay: "3s",
+    animationDelay: "3.2s",
   },
   {
-    src: "/media__1773609818663.jpg", // Good Will Hunting
+    src: "/media__1773609818663.jpg",
     alt: "Good Will Hunting",
     defaultTransform: "translate(60px, 160px) rotate(5deg)",
     hoverTransform: "translate(110px, 180px) rotate(12deg)",
     zIndex: 4,
-    animationDelay: "4.5s",
+    animationDelay: "4.8s",
   },
 ];
 
@@ -44,39 +44,36 @@ export default function PosterStack() {
 
   return (
     <>
+      {/* Float keyframes defined once — animation-fill-mode: backwards prevents the
+          frame-zero flash during animation-delay. */}
       <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-6px); }
+        @keyframes posterFloat {
+          0%   { transform: translateY(0px); }
+          50%  { transform: translateY(-6px); }
           100% { transform: translateY(0px); }
         }
       `}</style>
-      <div 
+
+      <div
         onMouseEnter={() => setIsStackHovered(true)}
         onMouseLeave={() => {
           setIsStackHovered(false);
           setHoveredIndex(null);
         }}
         onClick={() => {
-          // Allow tapping the background container to toggle spread on mobile
-          if (!hoveredIndex) {
-             setIsStackHovered(!isStackHovered);
-          }
+          if (!hoveredIndex) setIsStackHovered(!isStackHovered);
         }}
         className="w-[320px] max-w-[100vw] h-[520px] relative cursor-pointer lg:cursor-default"
-        style={{ 
-          // Container width scales down slightly on very small screens to fit without overflowing
-          transform: "scale(min(1, calc(100vw / 360)))",
-          WebkitTapHighlightColor: "transparent"
-        }}
+        style={{ WebkitTapHighlightColor: "transparent" }}
       >
         {posters.map((poster, index) => {
           const isHovered = hoveredIndex === index;
-          
-          let currentTransform = isStackHovered ? poster.hoverTransform : poster.defaultTransform;
+
+          let currentTransform = isStackHovered
+            ? poster.hoverTransform
+            : poster.defaultTransform;
           if (isHovered) {
-             // Further scale the specifically hovered poster
-             currentTransform = `${poster.hoverTransform} scale(1.08)`;
+            currentTransform = `${poster.hoverTransform} scale(1.08)`;
           }
 
           return (
@@ -84,14 +81,11 @@ export default function PosterStack() {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => {
-                if (hoveredIndex === index) {
-                  setHoveredIndex(null);
-                }
+                if (hoveredIndex === index) setHoveredIndex(null);
               }}
               onClick={(e) => {
-                // On mobile, tapping a poster toggles it to the front
                 e.stopPropagation();
-                setIsStackHovered(true); // ensure stack is fanned out
+                setIsStackHovered(true);
                 setHoveredIndex(hoveredIndex === index ? null : index);
               }}
               style={{
@@ -104,27 +98,35 @@ export default function PosterStack() {
                 overflow: "hidden",
                 boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
                 transform: currentTransform,
-                transition: "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, z-index 0s",
+                transition:
+                  "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease",
                 zIndex: isHovered ? 10 : poster.zIndex,
-                filter: isHovered ? "grayscale(0%)" : (isStackHovered ? "grayscale(30%)" : "grayscale(60%)"),
+                filter: isHovered
+                  ? "grayscale(0%)"
+                  : isStackHovered
+                  ? "grayscale(30%)"
+                  : "grayscale(60%)",
                 cursor: "pointer",
                 backgroundColor: "#e0e0e0",
-                animation: isStackHovered ? "none" : `float 6s ease-in-out infinite`,
-                animationDelay: poster.animationDelay,
+                willChange: "transform",
+                // Stop floating when stack is interacted with.
+                // animation-fill-mode: backwards ensures the poster stays at its
+                // defaultTransform (not the 0% float keyframe) during the delay period,
+                // which eliminates the frame-one glitch/jump on page load.
+                animation: isStackHovered
+                  ? "none"
+                  : `posterFloat 6s ease-in-out ${poster.animationDelay} infinite backwards`,
               }}
             >
-              <Image 
-                src={poster.src} 
+              <Image
+                src={poster.src}
                 alt={poster.alt}
                 fill
                 sizes="220px"
-                style={{
-                  objectFit: "cover",
-                  display: "block"
-                }}
+                style={{ objectFit: "cover", display: "block" }}
               />
             </div>
-          )
+          );
         })}
       </div>
     </>

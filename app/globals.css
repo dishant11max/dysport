@@ -180,3 +180,78 @@ body {
   background-color: #e0e0e0;
   width: 100%;
 }
+
+/* ════════════════════════════════════════
+   MOBILE RESPONSIVE — global overrides
+   ════════════════════════════════════════ */
+
+/* ─── Hero ─── */
+@media (max-width: 900px) {
+  .hero-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .hero-image-col {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: clamp(64px, 22vw, 100px) !important;
+  }
+}
+
+/* ─── Projects section ─── */
+@media (max-width: 768px) {
+  /* Reset the 115% parallax pre-scale on mobile — no parallax = no crop needed */
+  .parallax-img-wrap img {
+    height: 100% !important;
+    transform-origin: center center !important;
+  }
+
+  /* Project image container: reduce height on small screens */
+  .parallax-img-wrap {
+    height: 280px !important;
+  }
+}
+
+/* ─── See All Projects ─── */
+@media (max-width: 640px) {
+  .see-all-title {
+    font-size: clamp(32px, 10vw, 52px) !important;
+    gap: 12px !important;
+    flex-wrap: wrap;
+  }
+}
+
+/* ─── Footer ─── */
+@media (max-width: 640px) {
+  /* Stack the top section (big heading + links) vertically */
+  footer .grid-container > div > div:first-child {
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  /* Collapse the links row */
+  footer .grid-container > div > div:first-child > div:last-child {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+}
+
+/* ─── PosterStack wrapper ─── */
+@media (max-width: 480px) {
+  .poster-stack-wrap {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+}
+
+/* ─── Navbar: ensure brand name never overflows ─── */
+@media (max-width: 380px) {
+  .nav-brand {
+    font-size: 15px !important;
+  }
+}
+

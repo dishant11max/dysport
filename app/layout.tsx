@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Dishant — Developer & Builder",
+  title: "Dishant-Developer & Builder",
   description: "Portfolio of Dishant. Building digital products, developer tools and internet experiments.",
   icons: {
     icon: "/favicon.ico",

@@ -30,7 +30,7 @@ export default function Navbar() {
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 100,
+          zIndex: 110,
           height: "80px",
           backgroundColor: "rgba(244,244,244,0.92)",
           backdropFilter: "blur(8px)",
@@ -50,6 +50,7 @@ export default function Navbar() {
           {/* Logo / Name */}
           <Link
             href="/"
+            className="nav-brand"
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "18px",
@@ -61,7 +62,7 @@ export default function Navbar() {
               zIndex: 102
             }}
           >
-            Dishant savadia 
+            Dishant savadia
           </Link>
 
           {/* Desktop Nav links */}
@@ -85,13 +86,15 @@ export default function Navbar() {
 
           {/* Mobile Hamburger Toggle */}
           <button 
-            className="md:hidden flex flex-col justify-center items-center w-8 h-8 z-[102] relative"
+            className="md:hidden w-8 h-8 z-[102] relative"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            <span className={`bg-black block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm ${isMobileMenuOpen ? 'rotate-45 translate-y-[1px]' : '-translate-y-1'}`}></span>
-            <span className={`bg-black block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm my-[3px] ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-            <span className={`bg-black block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm ${isMobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : 'translate-y-1'}`}></span>
+            <div className="relative w-6 h-5 mx-auto">
+              <span className={`absolute left-0 w-full h-[1px] bg-black transition-all duration-300 ease-out ${isMobileMenuOpen ? 'top-[9px] rotate-45' : 'top-0'}`}></span>
+              <span className={`absolute left-0 top-[9px] w-full h-[1px] bg-black transition-all duration-300 ease-out ${isMobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`absolute left-0 w-full h-[1px] bg-black transition-all duration-300 ease-out ${isMobileMenuOpen ? 'bottom-[10px] -rotate-45' : 'bottom-0'}`}></span>
+            </div>
           </button>
         </div>
       </header>

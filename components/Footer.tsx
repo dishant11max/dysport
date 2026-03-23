@@ -44,7 +44,7 @@ export default function Footer() {
               >
                 Let&apos;s build
                 <br />
-                something great.
+                something intentional.
               </h2>
               <a
                 href="mailto:savadiadishan@gmail.com"

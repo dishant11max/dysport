@@ -44,6 +44,8 @@ export default function ProjectShowcase({
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
     const ctx = gsap.context(() => {
       // Text reveal
       gsap.fromTo(
@@ -80,8 +82,8 @@ export default function ProjectShowcase({
         }
       );
 
-      // Parallax scroll effect on image (only for cover)
-      if (imgRef.current && imageFit === "cover") {
+      // Parallax only on desktop — mobile scroll is throttled and causes jank
+      if (isDesktop && imgRef.current && imageFit === "cover") {
         gsap.to(imgRef.current, {
           yPercent: -12,
           ease: "none",
@@ -216,7 +218,6 @@ export default function ProjectShowcase({
                   objectPosition: imagePosition,
                   willChange: "transform",
                   filter: "contrast(1.06) brightness(0.97)",
-                  scale: imageFit === "cover" ? "1.15" : "1",
                 }}
               />
             </div>

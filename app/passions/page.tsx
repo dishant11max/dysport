@@ -32,9 +32,9 @@ export default function PassionsPage() {
             <NextStepsSection />
           </div>
 
-          {/* Sticky Poster Stack column - Responsive */}
-          <div className="relative flex justify-center lg:block mt-12 lg:mt-0">
-            <div 
+          {/* Sticky Poster Stack column — hidden on mobile, visible on desktop */}
+          <div className="hidden lg:block relative">
+            <div
               className="lg:sticky lg:top-0 lg:h-[100vh] flex items-center justify-center pb-20 lg:pb-0"
             >
               <PosterStack />
