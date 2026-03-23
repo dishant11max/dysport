@@ -114,6 +114,12 @@ export default function Footer() {
                 >
                   Contact
                 </Link>
+                <Link
+                  href="/notes"
+                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
+                >
+                  Notes
+                </Link>
               </div>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
