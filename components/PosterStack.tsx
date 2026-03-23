@@ -99,7 +99,7 @@ export default function PosterStack() {
                 boxShadow: "0 12px 30px rgba(0,0,0,0.08)",
                 transform: currentTransform,
                 transition:
-                  "transform 0.45s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease",
+                  "transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease",
                 zIndex: isHovered ? 10 : poster.zIndex,
                 filter: isHovered
                   ? "grayscale(0%)"

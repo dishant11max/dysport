@@ -1,8 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Footer() {
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (headlineRef.current) {
+      gsap.fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 15 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headlineRef.current,
+            start: "top 90%", // Trigger slightly before it comes fully into view
+          },
+        }
+      );
+    }
+  }, []);
+
   return (
     <footer
       style={{
@@ -32,6 +58,7 @@ export default function Footer() {
           >
             <div>
               <h2
+                ref={headlineRef}
                 style={{
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontSize: "clamp(40px, 5vw, 68px)",
@@ -40,12 +67,14 @@ export default function Footer() {
                   lineHeight: "1.1",
                   marginBottom: "16px",
                   color: "#fff",
+                  willChange: "transform, opacity",
                 }}
               >
-                Let&apos;s build
+                 Let&apos;s build something
                 <br />
-                something intentional.
+             worth talking about.
               </h2>
+
               <a
                 href="mailto:savadiadishan@gmail.com"
                 style={{
@@ -74,62 +103,49 @@ export default function Footer() {
             <div
               style={{
                 display: "flex",
-                gap: "clamp(40px, 8vw, 120px)",
+                gap: "clamp(80px, 12vw, 160px)", 
               }}
             >
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <p
                   style={{
                     fontSize: "11px",
                     fontWeight: 500,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.4)",
+                    color: "rgba(255,255,255,0.3)",
                     marginBottom: "8px",
                   }}
                 >
                   Sitemap
                 </p>
-                <Link
-                  href="/#work"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  Work
-                </Link>
-                <Link
-                  href="/about"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  About
-                </Link>
-                <Link
-                  href="/passions"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  Passions
-                </Link>
-                <Link
-                  href="/notes"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  Notes
-                </Link>
-                <Link
-                  href="/contact"
-                  style={{ fontSize: "14px", fontWeight: 300, color: "#fff", textDecoration: "none" }}
-                >
-                  Contact
-                </Link>
+                {[
+                  { name: "Work", url: "/#work", internal: true },
+                  { name: "About", url: "/about", internal: true },
+                  { name: "Passions", url: "/passions", internal: true },
+                  { name: "Notes", url: "/notes", internal: true },
+                  { name: "Contact", url: "/contact", internal: true },
+                ].map((item) => (
+                  item.internal ? (
+                    <Link key={item.name} href={item.url} className="footer-nav-link">
+                      {item.name} <span className="footer-arrow">→</span>
+                    </Link>
+                  ) : (
+                    <a key={item.name} href={item.url} className="footer-nav-link">
+                      {item.name} <span className="footer-arrow">→</span>
+                    </a>
+                  )
+                ))}
               </div>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <p
                   style={{
                     fontSize: "11px",
                     fontWeight: 500,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.4)",
+                    color: "rgba(255,255,255,0.3)",
                     marginBottom: "8px",
                   }}
                 >
@@ -146,17 +162,9 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: 300,
-                      color: "#fff",
-                      textDecoration: "none",
-                      transition: "opacity 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => ((e.target as HTMLAnchorElement).style.opacity = "0.6")}
-                    onMouseLeave={(e) => ((e.target as HTMLAnchorElement).style.opacity = "1")}
+                    className="footer-nav-link"
                   >
-                    {social.name}
+                    {social.name} <span className="footer-arrow">→</span>
                   </a>
                 ))}
               </div>

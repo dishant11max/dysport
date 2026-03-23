@@ -8,9 +8,9 @@ const projects: ProjectShowcaseProps[] = [
     category: "At A Glance",
     title: "DEVMAP",
     description:
-      "AI-powered developer roadmap generator that creates structured learning paths for developers.",
+      "Built to remove decision paralysis for developers learning new tech.",
     longDescription:
-      "Generates custom learning roadmaps using AI, tailored to each developer's experience level, goals, and preferred technologies.",
+      "AI-powered roadmap generator that creates structured paths based on your goals, stack, and experience level.",
     imageSrc: "/devmap.jpg",
     imageAlt: "Dev Map",
     link: "https://devmap-six.vercel.app/",
@@ -24,7 +24,9 @@ const projects: ProjectShowcaseProps[] = [
     category: "Experiment",
     title: "ETERNAL RECURRENCE",
     description:
-      "A minimalist personal web experiment exploring philosophy, identity, and design.",
+      "A question disguised as a website: would you choose this life again?",
+    longDescription:
+      "Minimalist experiment in philosophy and identity. No frameworks, no noise. Just the question.",
     imageSrc: "/recurrence.png",
     imageAlt: "Eternal Recurrence",
     link: "https://recurrence-omega.vercel.app/",
@@ -36,7 +38,9 @@ const projects: ProjectShowcaseProps[] = [
     category: "Platform",
     title: "SPORTS PARTNER FINDER",
     description:
-      "Platform that connects athletes and players with nearby sports partners.",
+      "Built for the athlete who trains alone because they haven't found their match yet.",
+    longDescription:
+      "A platform connecting players with nearby partners for training, pickup games, and accountability.",
     imageSrc: "/sports.jpg",
     imageAlt: "Sports Partner Finder",
     reversed: false,

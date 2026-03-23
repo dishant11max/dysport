@@ -162,18 +162,24 @@ export default function ProjectShowcase({
 
             {!longDescription && <div style={{ marginBottom: "40px" }} />}
 
-            <a href={link} target="_blank" rel="noopener noreferrer" className="cta-btn">
-              {ctaText}{" "}
-              <span
-                style={{
-                  display: "inline-block",
-                  transition: "transform 0.3s ease",
-                }}
-                className="arrow-icon"
-              >
-                →
-              </span>
-            </a>
+            {link && link !== "#" ? (
+              <a href={link} target="_blank" rel="noopener noreferrer" className="cta-btn">
+                {ctaText}{" "}
+                <span
+                  style={{
+                    display: "inline-block",
+                    transition: "transform 0.3s ease",
+                  }}
+                  className="arrow-icon"
+                >
+                  →
+                </span>
+              </a>
+            ) : (
+              <div className="cta-btn" style={{ borderBottomColor: "rgba(0,0,0,0.1)", cursor: "default", opacity: 0.8 }}>
+                {ctaText}
+              </div>
+            )}
 
             {/* Thumbnail strip */}
             {thumbnails.length > 0 && (
@@ -199,7 +205,7 @@ export default function ProjectShowcase({
             className={`relative h-[clamp(420px,55vw,700px)] order-1 ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
           >
             <div
-              className="parallax-img-wrap"
+              className="parallax-img-wrap project-img-hover"
               style={{
                 height: "100%",
                 borderRadius: "2px",
