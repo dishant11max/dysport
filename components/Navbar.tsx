@@ -61,7 +61,7 @@ export default function Navbar() {
               zIndex: 102
             }}
           >
-            Dishant
+            Dishant Savadia
           </Link>
 
           {/* Desktop Nav links */}
@@ -71,6 +71,9 @@ export default function Navbar() {
             </Link>
             <Link href="/passions" className="nav-link">
               Index
+            </Link>
+            <Link href="/notes" className="nav-link">
+              Notes
             </Link>
             <Link href="/about" className="nav-link">
               About
@@ -103,6 +106,9 @@ export default function Navbar() {
           </Link>
           <Link href="/passions" className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity">
             Index
+          </Link>
+          <Link href="/notes" className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity">
+            Notes
           </Link>
           <Link href="/about" className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity">
             About
