@@ -1,3 +1,4 @@
+import "./notes.css";
 import { notes } from "@/data/notes";
 import NotesList from "@/components/notes/NotesList";
 import Footer from "@/components/Footer";
@@ -19,8 +20,6 @@ export default function NotesPage() {
             Essays on building, clarity, and a quieter way of making things.
           </p>
         </div>
-
-        <div className="divider" style={{ marginBottom: "64px" }} />
 
         <NotesList notes={notes} />
       </div>

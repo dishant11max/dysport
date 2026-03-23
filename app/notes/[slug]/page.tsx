@@ -1,3 +1,4 @@
+import "../notes.css";
 import { notes } from "@/data/notes";
 import NoteLayout from "@/components/notes/NoteLayout";
 import { notFound } from "next/navigation";
@@ -29,7 +30,7 @@ export default async function NoteSlugPage({ params }: Props) {
   const note = notes[noteIndex];
 
   return (
-    <main style={{ backgroundColor: "#F4F4F4", minHeight: "100vh" }}>
+    <main className="note-detail-root">
       <NoteLayout note={note} noteNumber={noteIndex + 1} />
     </main>
   );

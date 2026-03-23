@@ -12,7 +12,7 @@ interface NoteLayoutProps {
 function getReadingTime(content: string): string {
   const words = content.replace(/\n/g, " ").split(/\s+/).filter(Boolean).length;
   const mins = Math.max(1, Math.round(words / 200));
-  return `${mins} min`;
+  return `${mins} min read`;
 }
 
 export default function NoteLayout({ note, noteNumber }: NoteLayoutProps) {
@@ -29,26 +29,13 @@ export default function NoteLayout({ note, noteNumber }: NoteLayoutProps) {
       const full = el.scrollHeight - el.clientHeight;
       setProgress(full > 0 ? Math.min(100, (top / full) * 100) : 0);
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const el = layoutRef.current;
-    if (!el) return;
-
-    el.style.opacity = "0";
-    el.style.transform = "translateY(10px)";
-    void el.offsetHeight;
-    el.style.transition = "opacity 0.7s ease, transform 0.7s ease";
-    el.style.opacity = "1";
-    el.style.transform = "translateY(0)";
-  }, []);
-
   const paragraphs = note.content
     .split(/\n\n+/)
-    .map((paragraph) => paragraph.trim())
+    .map((p) => p.trim())
     .filter(Boolean);
 
   const lastIndex = paragraphs.length - 1;
@@ -59,17 +46,25 @@ export default function NoteLayout({ note, noteNumber }: NoteLayoutProps) {
 
       <div className="note-layout">
         <div ref={layoutRef} className="note-essay-container">
-          <Link href="/notes" className="note-back-link">Back to Notes</Link>
 
+          {/* Top back link */}
+          <Link href="/notes" className="note-back-link">
+            Back to Notes
+          </Link>
+
+          {/* Header */}
           <p className="note-post-label">NOTE {num}</p>
           <h1 className="note-post-title">{note.title}</h1>
           <p className="note-post-meta">
-            {note.date}
-            <span className="note-post-meta-dot">/</span>
-            {readingTime} read
+            <span>{note.date}</span>
+            <span className="note-post-meta-dot" aria-hidden="true">/</span>
+            <span>{readingTime}</span>
           </p>
+
+          {/* Short custom divider */}
           <div className="note-post-divider" />
 
+          {/* Essay body */}
           <div className="note-essay-body">
             {paragraphs.map((paragraph, index) => {
               const isIntro = index === 0;
@@ -91,8 +86,11 @@ export default function NoteLayout({ note, noteNumber }: NoteLayoutProps) {
             })}
           </div>
 
+          {/* Bottom back link */}
           <div className="note-post-footer">
-            <Link href="/notes" className="note-back-link">Back to Notes</Link>
+            <Link href="/notes" className="note-back-link">
+              Back to Notes
+            </Link>
           </div>
         </div>
       </div>
