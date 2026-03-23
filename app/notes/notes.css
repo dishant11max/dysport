@@ -233,6 +233,13 @@
   opacity: 0.4;
 }
 
+/* ─── Hero image ─── */
+.note-hero-image {
+  margin-bottom: 40px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
 /* ─── Custom short divider ─── */
 .note-post-divider {
   width: 56px;
