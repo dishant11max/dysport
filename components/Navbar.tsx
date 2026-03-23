@@ -61,7 +61,7 @@ export default function Navbar() {
               zIndex: 102
             }}
           >
-            Dishant Savadia
+            Dishant savadia 
           </Link>
 
           {/* Desktop Nav links */}
