@@ -8,6 +8,45 @@ export interface Note {
 
 export const notes: Note[] = [
   {
+    title: "Hope Dies. That Is Not the End of the Story.",
+    date: "Apr 2026",
+    slug: "hope-dies-that-is-not-the-end",
+    image: "/hope-dies.jpg",
+    content: `At some point it just goes. You stop believing things will change. Not dramatically. There is no moment you can point to. It is more like a slow leak. One disappointment, then another, then enough of them that hoping starts to feel embarrassing. Like something you used to do before you knew better.
+
+Most people call that growing up. I am not sure it is.
+
+Viktor Frankl spent three years in Nazi concentration camps. He watched men die, not always from illness or violence, but from the moment they stopped seeing a future for themselves. When hope left, they left. He was specific about this. It was not metaphorical. The body followed wherever the mind had already given up.
+
+He also watched men survive things they had no business surviving. Not because circumstances improved. They did not. But because something in them refused to treat the present moment as the final word. They held onto a person, a purpose, some version of themselves that still existed somewhere on the other side of all this. And they moved toward it even when they could not see it.
+
+That is not optimism. Optimism is easy. That is something harder. Something closer to defiance.
+
+The problem with how we talk about hope is that we treat it like weather. Something that arrives when conditions are right and disappears when they are not. You either feel it or you do not. You are either a hopeful person or a realistic one.
+
+But hope is not a feeling. It is a decision you make about the future before you have any proof the future deserves it. Ernst Bloch spent his whole career on this, the idea that hope is an orientation, a refusal to let what exists right now be the ceiling of what is possible. Hannah Arendt called it the capacity to begin. Not to go back. To actually start something new.
+
+Neither of them was describing a mood. They were describing an act of will.
+
+When hope dies and you are standing in what is left of it, the most dishonest thing you can tell yourself is that you are back at zero. You are not. You feel like you are, because the ground looks the same and the doubt sounds familiar. But you are a different person than the one who started. Every attempt changed something in you even when it did not change anything outside of you. That is not a comforting thing people say. It is just true.
+
+The version of you that tries again is not naive. It has already seen what failure looks like up close and decided to move anyway. That is not the same person who hoped easily at the beginning. That person is harder to break.
+
+Growth does not always have a face. Sometimes it is just the fact that you are still here, still trying, still refusing to let what happened be the whole story.
+
+There is a cost to choosing hope after it has already died once. You know now what it might cost you. You know it might not work. You do it anyway. That is the part nobody talks about, that hope, real hope, requires more courage the second time. And the third. Not less.
+
+Courageous people change. People who have given up on themselves stay exactly where they are and call it being realistic. I have been both. The second one is quieter but it takes more out of you in the end.
+
+**To be human is to try again. Do not deny your nature.**
+
+Hope is not the belief that everything will be fine. It is the refusal to stop moving before you find out.
+
+It dies sometimes. More than once for most people. What you do in the silence after that, whether you let it stay dead or decide, quietly, without any fanfare, to try again, that is the whole question.
+
+Everything else is just waiting.`,
+  },
+  {
     title: "In the Era of Instant Slop, Taste Is the Final Moat",
     date: "Mar 2026",
     slug: "taste-is-the-final-moat",
@@ -53,30 +92,5 @@ Build things that feel intentional. Ship work that carries a point of view. Edit
 The world does not need more. It needs better.
 
 And better is a question of taste.`,
-  },
-  {
-    title: "The Freedom of Not Knowing",
-    date: "Jan 2026",
-    slug: "freedom-of-not-knowing",
-    content: `Not knowing what comes next is not a flaw. It is space.
-
-We are taught to believe that certainty is the sign of maturity. Choose a path early, define a plan, and then execute it perfectly. So we spend years waiting for a complete map before we make a move.
-
-But clarity rarely arrives before action. It arrives after action.
-
-Most of what matters in life is discovered in motion, not in theory. You try a thing, you fail at parts of it, you adjust, and your direction becomes clearer than any plan could have made it.
-
-There is a quiet freedom in admitting that you do not know. No fixed script to obey. No imaginary deadline to chase. No performance of confidence. Just attention to the next honest step.
-
-When nothing is guaranteed, everything is available. You are not late. You are not off track. You are simply in the middle of becoming, like everyone else.
-
-A lot of anxiety comes from treating uncertainty as danger. It is not always danger. Often, it is raw material. It is the part of life where curiosity can still shape the outcome.
-
-So instead of asking, "What is the perfect path?" ask, "What can I begin today?" Build one thing. Read one page. Start one conversation. Small actions reveal what thinking alone cannot.
-
-Direction is not something you find once and keep forever. It is something you practice.
-
-You do not need to have your whole life figured out.
-You only need the courage to begin.`,
   },
 ];
