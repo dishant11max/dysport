@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Note } from "@/data/notes";
+import ShareBar from "./ShareBar";
 
 interface NoteLayoutProps {
   note: Note;
@@ -120,6 +121,9 @@ export default function NoteLayout({ note, noteNumber }: NoteLayoutProps) {
               );
             })}
           </div>
+
+          {/* Share bar */}
+          <ShareBar title={note.title} slug={note.slug} />
 
           {/* Bottom back link */}
           <div className="note-post-footer">
