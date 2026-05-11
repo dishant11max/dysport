@@ -5,23 +5,6 @@ import ProjectShowcase, { ProjectShowcaseProps } from "./ProjectShowcase";
 const projects: ProjectShowcaseProps[] = [
   {
     index: "01",
-    category: "Platform",
-    title: "ECHO",
-    description:
-      "A developer-focused social platform built as a full-stack final year project.",
-    longDescription:
-      "Problem: developers lack a focused space to share progress and connect with peers beyond generic social feeds. Approach: full-stack social platform with auth, feeds, and real-time interactions. Stack: React, Node.js, Supabase. Outcome: a shipped, working platform that served as proof developers need their own social layer.",
-    imageSrc: "/echo-project.jpg",
-    imageAlt: "ECHO Platform",
-    link: "https://github.com/dishant11max/ECHO",
-    imagePosition: "center center",
-    imageFit: "cover",
-    reversed: false,
-    thumbnails: [],
-    ctaText: "View on GitHub",
-  },
-  {
-    index: "02",
     category: "At A Glance",
     title: "DEVMAP",
     description:
@@ -33,8 +16,28 @@ const projects: ProjectShowcaseProps[] = [
     link: "https://devmap-six.vercel.app/",
     imagePosition: "center center",
     imageFit: "cover",
+    reversed: false,
+    thumbnails: [],
+    gradient: "from-[#0d2018] to-[#080808]",
+    mobileImageSrc: "/devmap-mobile-new.png",
+  },
+  {
+    index: "02",
+    category: "Platform",
+    title: "ECHO",
+    description:
+      "A developer-focused social platform built as a full-stack final year project.",
+    longDescription:
+      "Problem: developers lack a focused space to share progress and connect with peers beyond generic social feeds. Approach: full-stack social platform with auth, feeds, and real-time interactions. Stack: React, Node.js, Supabase. Outcome: a shipped, working platform that served as proof developers need their own social layer.",
+    imageSrc: "/echo-project.jpg",
+    imageAlt: "ECHO Platform",
+    link: "https://github.com/dishant11max/ECHO",
+    imagePosition: "center center",
+    imageFit: "cover",
     reversed: true,
     thumbnails: [],
+    ctaText: "View on GitHub",
+    gradient: "from-[#0f1f3d] to-[#080808]",
   },
   {
     index: "03",
@@ -49,6 +52,8 @@ const projects: ProjectShowcaseProps[] = [
     link: "https://recurrence-omega.vercel.app/",
     reversed: false,
     thumbnails: [],
+    gradient: "from-[#1a0d2e] to-[#080808]",
+    mobileImageSrc: "/eternal-project.png",
   },
   {
     index: "04",
@@ -63,6 +68,7 @@ const projects: ProjectShowcaseProps[] = [
     reversed: true,
     thumbnails: [],
     ctaText: "Currently Building",
+    gradient: "from-[#2a1200] to-[#080808]",
   },
 ];
 

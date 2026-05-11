@@ -276,7 +276,7 @@ body::after {
 
 @media (max-width: 640px) {
   .hero-title {
-    font-size: clamp(64px, 22vw, 100px) !important;
+    font-size: clamp(40px, 13vw, 80px) !important;
   }
 }
 

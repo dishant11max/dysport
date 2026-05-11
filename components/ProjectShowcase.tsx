@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ProjectVisualPanel from "./ProjectVisualPanel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,8 @@ export interface ProjectShowcaseProps {
   reversed?: boolean;     // image on left, text on right
   thumbnails?: string[];
   ctaText?: string;
+  gradient?: string;
+  mobileImageSrc?: string;
 }
 
 export default function ProjectShowcase({
@@ -37,6 +40,8 @@ export default function ProjectShowcase({
   reversed = false,
   thumbnails = [],
   ctaText = "View Full Project",
+  gradient,
+  mobileImageSrc,
 }: ProjectShowcaseProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -106,6 +111,24 @@ export default function ProjectShowcase({
         <div
           className="grid grid-cols-1 lg:grid-cols-2 items-center gap-[clamp(40px,5vw,80px)]"
         >
+          {/* Mobile Visual Panel or Image */}
+          {(gradient || mobileImageSrc) && (
+            <div className="block md:hidden order-1 w-full rounded-sm overflow-hidden">
+              {mobileImageSrc ? (
+                <Image 
+                  src={mobileImageSrc} 
+                  alt={`${title} mobile preview`} 
+                  width={800} 
+                  height={600} 
+                  sizes="100vw"
+                  style={{ width: "100%", height: "auto", objectFit: "contain" }} 
+                />
+              ) : (
+                <ProjectVisualPanel gradient={gradient!} index={index} tag={category} />
+              )}
+            </div>
+          )}
+
           {/* ── Text Block ── */}
           <div
             ref={textRef}

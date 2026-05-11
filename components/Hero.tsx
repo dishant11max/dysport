@@ -127,7 +127,7 @@ export default function Hero() {
             <h1
               ref={titleRef}
               className="hero-title"
-              style={{ marginBottom: "48px", overflowWrap: "break-word", wordBreak: "break-word", overflow: "hidden" }}
+              style={{ marginBottom: "48px" }}
             >
               DISHANT
             </h1>
