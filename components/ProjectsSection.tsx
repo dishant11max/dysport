@@ -5,45 +5,62 @@ import ProjectShowcase, { ProjectShowcaseProps } from "./ProjectShowcase";
 const projects: ProjectShowcaseProps[] = [
   {
     index: "01",
+    category: "Platform",
+    title: "ECHO",
+    description:
+      "A developer-focused social platform built as a full-stack final year project.",
+    longDescription:
+      "Problem: developers lack a focused space to share progress and connect with peers beyond generic social feeds. Approach: full-stack social platform with auth, feeds, and real-time interactions. Stack: React, Node.js, Supabase. Outcome: a shipped, working platform that served as proof developers need their own social layer.",
+    imageSrc: "/echo-project.jpg",
+    imageAlt: "ECHO Platform",
+    link: "https://github.com/dishant11max/ECHO",
+    imagePosition: "center center",
+    imageFit: "cover",
+    reversed: false,
+    thumbnails: [],
+    ctaText: "View on GitHub",
+  },
+  {
+    index: "02",
     category: "At A Glance",
     title: "DEVMAP",
     description:
       "Built to remove decision paralysis for developers learning new tech.",
     longDescription:
-      "AI-powered roadmap generator that creates structured paths based on your goals, stack, and experience level.",
+      "Problem: choosing what to learn next is paralyzing. Approach: AI-generated roadmaps tailored to your goals, stack, and experience level — no generic curricula. Stack: Next.js, OpenAI, Vercel. Outcome: a tool that gives developers a clear starting point and ships a decision in under 60 seconds.",
     imageSrc: "/devmap.jpg",
     imageAlt: "Dev Map",
     link: "https://devmap-six.vercel.app/",
     imagePosition: "center center",
     imageFit: "cover",
-    reversed: false,
-    thumbnails: [],
-  },
-  {
-    index: "02",
-    category: "Experiment",
-    title: "ETERNAL RECURRENCE",
-    description:
-      "A question disguised as a website: would you choose this life again?",
-    longDescription:
-      "Minimalist experiment in philosophy and identity. No frameworks, no noise. Just the question.",
-    imageSrc: "/recurrence.png",
-    imageAlt: "Eternal Recurrence",
-    link: "https://recurrence-omega.vercel.app/",
     reversed: true,
     thumbnails: [],
   },
   {
     index: "03",
+    category: "Experiment",
+    title: "ETERNAL RECURRENCE",
+    description:
+      "A question disguised as a website: would you choose this life again?",
+    longDescription:
+      "Problem: philosophy rarely ships as a product. Approach: strip Nietzsche's eternal recurrence thought experiment down to a single interactive question with no escape route. Stack: vanilla HTML, CSS, JS — no frameworks. Outcome: a contemplative experience that proves restraint is a design decision.",
+    imageSrc: "/recurrence.png",
+    imageAlt: "Eternal Recurrence",
+    link: "https://recurrence-omega.vercel.app/",
+    reversed: false,
+    thumbnails: [],
+  },
+  {
+    index: "04",
     category: "Platform",
     title: "SPORTS PARTNER FINDER",
     description:
       "Built for the athlete who trains alone because they haven't found their match yet.",
     longDescription:
-      "A platform connecting players with nearby partners for training, pickup games, and accountability.",
+      "Problem: finding a consistent training partner in your area is surprisingly unsolved. Approach: location-aware matching platform connecting players for pickup games and accountability. Stack: React, Supabase, Mapbox. Outcome: actively in development — MVP scoped and in progress.",
     imageSrc: "/sports.jpg",
     imageAlt: "Sports Partner Finder",
-    reversed: false,
+    reversed: true,
     thumbnails: [],
     ctaText: "Currently Building",
   },
@@ -89,7 +106,7 @@ export default function ProjectsSection() {
             </h2>
           </div>
           <a
-            href="#"
+            href="/projects"
             style={{
               fontSize: "11px",
               fontWeight: 500,

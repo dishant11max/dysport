@@ -8,7 +8,10 @@ import AboutSidebar from "@/components/AboutSidebar";
 
 export const metadata = {
   title: "About | Dishant",
-  description: "I’m Dishant—a developer focused on building digital products, developer tools and internet experiments.",
+  description: "I'm Dishant, a developer focused on building digital products, developer tools and internet experiments.",
+  openGraph: {
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 export default function AboutPage() {

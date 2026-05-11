@@ -127,7 +127,7 @@ export default function Hero() {
             <h1
               ref={titleRef}
               className="hero-title"
-              style={{ marginBottom: "48px" }}
+              style={{ marginBottom: "48px", overflowWrap: "break-word", wordBreak: "break-word", overflow: "hidden" }}
             >
               DISHANT
             </h1>
@@ -239,6 +239,7 @@ export default function Hero() {
                 alt="Artistic blueprint" 
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 420px"
                 style={{ objectFit: "cover" }} 
               />
             </div>

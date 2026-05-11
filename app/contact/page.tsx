@@ -1,8 +1,12 @@
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata = {
   title: "Contact | Dishant",
   description: "Get in touch with Dishant for projects or collaborations.",
+  openGraph: {
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
 };
 
 function ContactLink({ label, value, href }: { label: string; value: string; href: string }) {
@@ -35,10 +39,10 @@ export default function ContactPage() {
       
       <div className="max-w-[1400px] mx-auto px-[clamp(24px,5vw,80px)] pt-[clamp(120px,15vh,200px)] pb-[clamp(80px,10vh,140px)]">
         
-        <div className="grid grid-cols-1 lg:grid-cols-[640px_360px] gap-[120px]">
+        <div className="grid grid-cols-1 lg:grid-cols-[640px_360px] gap-[80px] lg:gap-[120px]">
           
           {/* Left Column */}
-          <div className="flex flex-col gap-[160px]">
+          <div className="flex flex-col gap-[80px] lg:gap-[160px]">
             <div>
               <h1 className="font-playfair text-[clamp(50px,8vw,80px)] leading-[0.9] tracking-[-0.04em] text-black mb-12 uppercase">
                 CONTACT
@@ -46,15 +50,27 @@ export default function ContactPage() {
               
               <div className="max-w-[520px] flex flex-col gap-6 text-[18px] text-[#444] leading-[1.6] font-inter">
                 <p>
-                  Let&apos;s build something interesting.
+                  I&apos;m currently available for freelance work, collabs, and interesting ideas.
                 </p>
                 <p>
-                  If you&apos;d like to collaborate, discuss ideas, or just say hello, feel free to reach out.
+                  Send me a message and I&apos;ll reply within a day.
                 </p>
+              </div>
+              <div className="mt-10">
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.14em] uppercase text-[#111] border-b border-black pb-1 hover:opacity-70 transition-opacity"
+                >
+                  Download Resume →
+                </a>
               </div>
             </div>
             
-            {/* Optional Section */}
+            {/* Contact Form */}
+            <ContactForm />
+
+            {/* Currently Open To */}
             <div>
               <p className="text-[11px] font-medium tracking-[0.18em] uppercase text-gray-400 mb-6">
                 CURRENTLY OPEN TO
@@ -81,12 +97,12 @@ export default function ContactPage() {
             />
             <ContactLink 
               label="LINKEDIN" 
-              value="linkedin.com" 
+              value="linkedin.com/in/dishant-savadia" 
               href="https://www.linkedin.com/in/dishant-savadia-b38b0a289/" 
             />
             <ContactLink 
               label="TWITTER" 
-              value="x.com" 
+              value="x.com/dishant10510925" 
               href="https://x.com/dishant10510925" 
             />
           </div>

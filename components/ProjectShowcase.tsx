@@ -199,10 +199,10 @@ export default function ProjectShowcase({
             )}
           </div>
 
-          {/* ── Image Block ── */}
+          {/* ── Image Block (hidden on mobile — intentional text-only cards on small screens) ── */}
           <div
             ref={imageWrapRef}
-            className={`relative h-[clamp(420px,55vw,700px)] order-1 ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
+            className={`hidden md:block relative h-[clamp(420px,55vw,700px)] order-1 ${reversed ? "lg:order-1 lg:ml-[-40px] lg:mr-[40px]" : "lg:order-2 lg:ml-[40px] lg:mr-[-40px]"}`}
           >
             <div
               className="parallax-img-wrap project-img-hover"

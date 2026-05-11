@@ -6,12 +6,22 @@ import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  // Scroll-based nav shrink
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 60);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Prevent background scrolling when menu is open
   useEffect(() => {
@@ -31,11 +41,13 @@ export default function Navbar() {
           left: 0,
           right: 0,
           zIndex: 110,
-          height: "80px",
+          height: scrolled ? "64px" : "80px",
           backgroundColor: "rgba(244,244,244,0.92)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
           borderBottom: "1px solid rgba(0,0,0,0.06)",
+          opacity: scrolled ? 0.95 : 1,
+          transition: "height 0.3s ease, opacity 0.3s ease",
         }}
       >
         <div
@@ -67,19 +79,19 @@ export default function Navbar() {
 
           {/* Desktop Nav links */}
           <nav className="hidden md:flex gap-10 items-center">
-            <Link href="/#work" className="nav-link">
+            <Link href="/#work" className="nav-link" style={{ borderBottom: pathname === "/" ? "1px solid #000" : undefined, paddingBottom: "2px" }}>
               Work
             </Link>
-            <Link href="/passions" className="nav-link">
-              Index
+            <Link href="/passions" className="nav-link" style={{ borderBottom: pathname === "/passions" ? "1px solid #000" : undefined, paddingBottom: "2px" }}>
+              Interests
             </Link>
-            <Link href="/notes" className="nav-link">
+            <Link href="/notes" className="nav-link" style={{ borderBottom: pathname === "/notes" || pathname.startsWith("/notes/") ? "1px solid #000" : undefined, paddingBottom: "2px" }}>
               Notes
             </Link>
-            <Link href="/about" className="nav-link">
+            <Link href="/about" className="nav-link" style={{ borderBottom: pathname === "/about" ? "1px solid #000" : undefined, paddingBottom: "2px" }}>
               About
             </Link>
-            <Link href="/contact" className="nav-link">
+            <Link href="/contact" className="nav-link" style={{ borderBottom: pathname === "/contact" ? "1px solid #000" : undefined, paddingBottom: "2px" }}>
               Contact
             </Link>
           </nav>
@@ -108,7 +120,7 @@ export default function Navbar() {
             Work
           </Link>
           <Link href="/passions" className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity">
-            Index
+            Interests
           </Link>
           <Link href="/notes" className="font-playfair text-4xl text-black hover:opacity-60 transition-opacity">
             Notes

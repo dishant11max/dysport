@@ -79,7 +79,7 @@ export default function AboutSidebar() {
             color: "#000"
           }}
         >
-          05+
+          08+
         </p>
       </div>
 
@@ -150,6 +150,31 @@ export default function AboutSidebar() {
       >
         whatever it takes to be the best.
       </p>
+
+      {/* Resume Download */}
+      <a
+        href="/resume.pdf"
+        download
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "6px",
+          fontFamily: "'Inter', sans-serif",
+          fontSize: "11px",
+          fontWeight: 500,
+          letterSpacing: "0.14em",
+          textTransform: "uppercase",
+          color: "#111",
+          textDecoration: "none",
+          borderBottom: "1px solid #000",
+          paddingBottom: "2px",
+          transition: "opacity 0.3s ease",
+        }}
+        onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.6"; }}
+        onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; }}
+      >
+        Download Resume →
+      </a>
     </aside>
   );
 }
