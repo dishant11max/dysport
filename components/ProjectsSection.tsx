@@ -19,7 +19,7 @@ const projects: ProjectShowcaseProps[] = [
     reversed: false,
     thumbnails: [],
     gradient: "from-[#0d2018] to-[#080808]",
-    mobileImageSrc: "/devmap-mobile-new.png",
+    mobileImageSrc: "/media__1778845142582.jpg",
   },
   {
     index: "02",
@@ -38,6 +38,7 @@ const projects: ProjectShowcaseProps[] = [
     thumbnails: [],
     ctaText: "View on GitHub",
     gradient: "from-[#0f1f3d] to-[#080808]",
+    mobileImageSrc: "/media__1778845142665.jpg",
   },
   {
     index: "03",
@@ -53,7 +54,7 @@ const projects: ProjectShowcaseProps[] = [
     reversed: false,
     thumbnails: [],
     gradient: "from-[#1a0d2e] to-[#080808]",
-    mobileImageSrc: "/eternal-project.png",
+    mobileImageSrc: "/media__1778845142678.jpg",
   },
   {
     index: "04",
@@ -69,6 +70,7 @@ const projects: ProjectShowcaseProps[] = [
     thumbnails: [],
     ctaText: "Currently Building",
     gradient: "from-[#2a1200] to-[#080808]",
+    mobileImageSrc: "/media__1778846264080.jpg",
   },
 ];
 

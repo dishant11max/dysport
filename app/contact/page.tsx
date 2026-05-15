@@ -58,7 +58,7 @@ export default function ContactPage() {
               </div>
               <div className="mt-10">
                 <a
-                  href="/resume.pdf"
+                  href="/Dishant_resume1 (1).pdf"
                   download
                   className="inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.14em] uppercase text-[#111] border-b border-black pb-1 hover:opacity-70 transition-opacity"
                 >

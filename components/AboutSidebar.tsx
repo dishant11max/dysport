@@ -153,7 +153,7 @@ export default function AboutSidebar() {
 
       {/* Resume Download */}
       <a
-        href="/resume.pdf"
+        href="/Dishant_resume1 (1).pdf"
         download
         style={{
           display: "inline-flex",
